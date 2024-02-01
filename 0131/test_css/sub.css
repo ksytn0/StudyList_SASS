@@ -1,0 +1,13 @@
+:root {
+  --txt_bgcolor:#333;
+  --border01: 3px solid #ac0000;
+}
+
+h2 {
+  color: #f00;
+}
+
+p {
+  color: var(--txt_bgcolor);
+  border: var(--border01);
+}/*# sourceMappingURL=sub.css.map */
