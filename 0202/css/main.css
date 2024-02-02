@@ -1,0 +1,159 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap");
+h2 {
+  font-size: 16px;
+  color: #00f;
+}
+
+.title01 {
+  font-family: "Noto Sans KR", "맑은 고딕", arial, sans-serif;
+  font-size: 30px;
+  color: #f00;
+}
+
+.btn01 {
+  padding: 4px 10px;
+  color: #333;
+  background: #0f0;
+}
+
+.btn02 {
+  padding: 4px 10px;
+  color: #333;
+  background: #ff0;
+}
+
+.p01 {
+  width: 250px;
+  text-overflow: ellipsis; /*생략기호나오게*/
+  overflow: hidden; /*영역을 벗어난 글자 생략*/
+  white-space: nowrap; /*다음줄로 넘기지 않기*/
+}
+
+.btn03 {
+  font-family: "궁서체";
+  font-weight: bold;
+  font-size: 20px;
+  border: 5px solid #ccc;
+  padding: 5px 30px;
+  border-radius: 30px;
+  background: #ff0;
+  transition: 0.5s;
+}
+
+.btn04 {
+  font-family: "궁서체";
+  font-weight: bold;
+  font-size: 20px;
+  border: 5px solid #ccc;
+  padding: 5px 30px;
+  border-radius: 30px;
+  background: #0f0;
+  transition: 0.5s;
+}
+
+.btn03:hover, .btn04:hover {
+  background: #f00;
+  color: #fff;
+}
+
+.toggle_btn {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.bar {
+  position: absolute;
+  left: 1px;
+  display: inline-block;
+  width: 38px;
+  height: 3px;
+  background: #333;
+  transition: 0.5s;
+}
+
+.bar1 {
+  top: 5px;
+}
+
+.bar2 {
+  top: 19px;
+}
+
+.bar3 {
+  bottom: 5px;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #f00;
+  cursor: pointer;
+}
+
+.rotate45 {
+  transform: rotate(45deg);
+  top: 18px !important;
+}
+
+.rotate0 {
+  /*transform: rotate(0deg);*/
+  display: none;
+}
+
+.rotate_45 {
+  transform: rotate(-45deg);
+  bottom: 18px !important;
+}
+
+#toggle:checked + .toggle_btn > .bar1 {
+  transform: rotate(45deg) translate(9px, 10px);
+}
+
+#toggle:checked + .toggle_btn > .bar2 {
+  opacity: 0;
+}
+
+#toggle:checked + .toggle_btn > .bar3 {
+  transform: rotate(-45deg) translate(9px, -10px);
+}
+
+/*@mixin iconhover{
+    border: 1px solid $color2;
+    background: $color2;
+    width: 30px; height: 30px;
+    color: $color1;
+}
+.fab{
+    width: 30px; height: 30px;
+    border: 1px solid $color2;
+    padding: 1px 4px;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+.fas{
+    width: 30px; height: 30px;
+    border: 1px solid $color2;
+    padding: 1px 2px;
+    font-size: 25px;
+    box-sizing: border-box;
+}
+.fab:hover, .fas:hover{
+    @include iconhover;
+}*/
+.sns i {
+  font-size: 30px;
+  border: 1px solid #333;
+  padding: 4px 6px;
+  background: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.sns i:hover {
+  color: #f00;
+}/*# sourceMappingURL=main.css.map */

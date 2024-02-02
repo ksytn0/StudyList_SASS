@@ -1,0 +1,176 @@
+//style.scss
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+$font_s01:12px;
+$title01:16px;
+$color0:#333;
+$color1:#fff;
+$color2:#f00;
+$color3:#0f0;
+$color4:#ff0;
+$color5:#00f;
+$time: 0.5s;
+
+h2{
+    font-size: $title01;
+    color: $color5;
+}
+
+@mixin h3txt{
+    font-family: "Noto Sans KR", "맑은 고딕", arial, sans-serif;
+    font-size: 30px;
+    color: $color2;
+}
+.title01{
+    @include h3txt;
+}
+
+@mixin btn{
+    padding: 4px 10px;
+    color: $color0;
+}
+.btn01{
+    @include btn;
+    background: $color3;
+}
+.btn02{
+    @include btn;
+    background: $color4;
+}
+
+@mixin txt_over{
+    text-overflow: ellipsis; /*생략기호나오게*/
+    overflow: hidden; /*영역을 벗어난 글자 생략*/
+    white-space: nowrap; /*다음줄로 넘기지 않기*/
+}
+.p01{
+    width: 250px;
+    @include txt_over;
+}
+
+//실습3
+//공통버튼 서식(글자관련)
+@mixin btnFont{
+    font-family: "궁서체";
+    font-weight:bold;
+    font-size:20px;
+}
+//공통버튼 서식(컬러, 여백관련)
+@mixin btnArea{
+    border:5px solid #ccc;
+    padding:5px 30px;
+    border-radius:30px;
+}
+@mixin btnA{
+    @include btnFont;
+    @include btnArea;
+}
+.btn03{
+    @include btnA;
+    background: $color4;
+    transition: $time;
+}
+.btn04{
+    @include btnA;
+    background: $color3;
+    transition: $time;
+}
+.btn03:hover, .btn04:hover{
+    background: $color2;
+    color: $color1;
+}
+
+//실습4
+//모바일 bar서식
+.toggle_btn{
+    width: 40px; height: 40px;
+    display: block;
+    border: 1px solid #ccc;
+    position: relative;
+}
+@mixin bar{
+    position: absolute; left: 1px;
+    display: inline-block;
+    width: 38px; height: 3px;
+    background: $color0;
+    transition: $time;
+}
+.bar{
+    @include bar;
+}
+.bar1{top: 5px;}
+.bar2{top: 19px;}
+.bar3{bottom: 5px;}
+
+.toggle{
+    position: relative;
+    width: 40px; height: 40px;
+    border: 1px solid $color2;
+    cursor:pointer;
+
+}
+
+//span회전하기위한 서식
+.rotate45{
+    transform: rotate(45deg);
+    top: 18px !important;
+}
+.rotate0{
+    /*transform: rotate(0deg);*/
+    display: none;
+    
+}
+.rotate_45{
+    transform: rotate(-45deg);
+    bottom: 18px !important;
+}
+
+//checkbox토글 서식
+#toggle:checked + .toggle_btn > .bar1{
+    transform: rotate(45deg) translate(9px, 10px);
+}
+#toggle:checked + .toggle_btn > .bar2{
+    opacity: 0;
+}
+#toggle:checked + .toggle_btn > .bar3{
+    transform: rotate(-45deg) translate(9px, -10px);
+}
+
+//실습5 sns스타일 서식
+/*@mixin iconhover{
+    border: 1px solid $color2;
+    background: $color2;
+    width: 30px; height: 30px;
+    color: $color1;
+}
+.fab{
+    width: 30px; height: 30px;
+    border: 1px solid $color2;
+    padding: 1px 4px;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+.fas{
+    width: 30px; height: 30px;
+    border: 1px solid $color2;
+    padding: 1px 2px;
+    font-size: 25px;
+    box-sizing: border-box;
+}
+.fab:hover, .fas:hover{
+    @include iconhover;
+}*/
+@mixin sns{
+    font-size: 30px;
+    border: 1px solid $color0;
+    padding: 4px 6px;
+    background: $color0;
+    color: $color1;
+}
+.sns i{
+    @include sns;
+    transition: $time;
+}
+.sns i:hover{color: $color2;}
+
