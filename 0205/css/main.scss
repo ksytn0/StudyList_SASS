@@ -1,0 +1,72 @@
+//style.scss
+
+//변수선언
+$baseFont:'맑은 고딕',arial,sans-serif;
+$baseFontColor:#333;
+$baseFontSize:12px;
+$bigFontSize:30px;
+$boxWidth:1280px;
+$boxCenter:0px auto;
+$bgColor:#ff0;
+
+body{
+    font-family:$baseFont;
+    font-size:$baseFontSize;
+    color:$baseFontColor;
+}
+h2{
+    font-size:$bigFontSize;
+}
+#wrap{
+    width:$boxWidth; height:400px;
+    background:$bgColor;
+    margin:$boxCenter;
+    /*지역변수선언*/
+    $font_Color:#f00;
+}
+p{
+    /*위 지역변수는 다른곳에 적용되지 않음.*/
+    /*color:$font_Color;*/
+}
+
+@mixin divBox($bgcolor){
+    width:$boxWidth;
+    background:$bgcolor;
+}
+//box01, box02에 각각 따로 배경색 설정하기
+#box01{
+    @include divBox(#f00);
+}
+#box02{
+    @include divBox(#0f0);
+}
+
+/*실습예제*/
+@mixin btn($btnbgColor:#ccc){ /*매개변수는 기본값설정가능*/
+    width:200px; height: 30px;
+    border:1px solid #ccc;
+    text-align: center;
+    font-size:$baseFontSize;
+    color:#fff;
+    background:$btnbgColor;
+}
+.btn{
+    @include btn;
+}
+.btn03{@include btn(#f00);}
+.btn04{@include btn(#0f0);}
+.btn05{@include btn(orange);}
+
+/*목록태그에 각각 테두리 서식 다르게 적용하기*/
+@mixin list_border($w:1px, $s:solid, $c:#333){
+    border:$w $s $c;
+}
+.list01 li{
+    @include list_border;
+    margin-bottom: 3px;
+
+}
+.list01 li:first-child{@include list_border($w:3px, $s:dotted, $c:#d42121);} /*@include list_border(1px, solid, #f00);*/
+.list01 li:nth-child(2){@include list_border($c:#ffae00);}
+.list01 li:nth-child(3){@include list_border($c:#ffe600);}
+.list01 li:last-child{@include list_border($c:#00ff88);}
